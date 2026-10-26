@@ -79,26 +79,6 @@ One limitation of this analysis relates to the WGCNA network construction. The d
 
 **Overall:** While many of the genes identified in this analysis have already been linked to prostate cancer biology, combining differential expression analysis with pathway enrichment, co-expression networks, and module–trait relationships provides a broader view of how these genes function within coordinated transcriptional programs. This systems-level perspective highlights potential biomarkers and regulatory hubs, such as DLX1, GSTP1, and HJURP, that may have diagnostic or prognostic value if their expression correlates with disease severity or treatment response.
 
-
-## Repository Structure
-
-```text
-tcga-prad-transcriptomic-analysis/
-├── README.md
-├── scripts/
-│   ├── 01_data_preprocessing.R
-│   ├── 02_differential_expression.R
-│   ├── 03_enrichment_GSEA.R
-│   ├── 04_network_analysis.R
-│   └── 05_WGCNA.R
-├── results/
-│   ├── figures/
-│   └── tables/
-└── data/
-    └── README.md
-```
-
-
 ## Data Source & References: 
 
 The Cancer Genome Atlas (TCGA), Prostate Adenocarcinoma (PRAD).
