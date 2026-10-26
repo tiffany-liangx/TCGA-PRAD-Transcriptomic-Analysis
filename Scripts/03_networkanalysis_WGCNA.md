@@ -504,7 +504,7 @@ Reference:
 Lai, W., Zhu, W., Xiao, C., Li, X., Wang, Y., Han, Y., Zheng, J., Li, Y., Li, M., & Wen, X. (2021). HJURP promotes proliferation in prostate cancer cells through increasing CDKN1A degradation via the GSK3β/JNK signaling pathway. Cell Death & Disease, 12(6), Article 583. https://doi.org/10.1038/s41419-021-03870-x
 
 
-Confirm whether if the pink modules become more active in higher-grade tumors by determining which gleason score shows highest MEpink activity:
+Check to confirm whether if genes in pink modules become more active in higher-grade tumors by determining which gleason score shows highest MEpink activity:
 ```{r, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, class.source = "fold-show", fig.height=5, fig.width=8, results='show', cache=FALSE}
 
 pink_gleason <- data.frame(
@@ -521,7 +521,7 @@ pink_by_gleason
 
 ```
 
-Results does confirm that, and indicates that pink modules become progressively more active as tumor gets more aggressive.
+Result does confirm and indicates that genes inpink modules become progressively more active as tumor gets more aggressive.
 
 
 
