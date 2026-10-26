@@ -113,6 +113,35 @@ head(outgoing_hubs, 10)  # top 10 outgoing hubs
 
 ```
 
+Top 10 incoming hubs: 
+| Node | In-degree | Out-degree | Betweenness |
+|---|---:|---:|---:|
+| APOBEC3C | 70 | 0 | 0.00000 |
+| PINLYP | 63 | 2 | 11.52552 |
+| TMLHE | 53 | 8 | 20.60891 |
+| ZDHHC9 | 52 | 4 | 10.97516 |
+| ID4 | 51 | 17 | 38.61318 |
+| EPHA10 | 51 | 8 | 55.09689 |
+| SBK1 | 49 | 6 | 15.93689 |
+| GSTM4 | 48 | 24 | 76.17856 |
+| EFEMP2 | 46 | 15 | 50.58938 |
+| ANXA2 | 43 | 12 | 28.70983 |
+
+Top 10 outgoing hubs: 
+| Node | In-degree | Out-degree | Betweenness |
+|---|---:|---:|---:|
+| GSTP1 | 4 | 59 | 15.530638 |
+| TRIP6 | 4 | 56 | 11.926720 |
+| EFNB1 | 6 | 54 | 15.599312 |
+| DOK4 | 21 | 53 | 48.002459 |
+| ESRP2 | 4 | 51 | 17.898316 |
+| RND2 | 10 | 50 | 15.711416 |
+| PLP2 | 7 | 49 | 15.437838 |
+| CD40 | 6 | 48 | 11.879524 |
+| CRYAB | 13 | 47 | 18.980028 |
+| AIFM2 | 1 | 46 | 1.480985 |
+
+
 Genes with high in-degree receive many connections and often represent convergence points of shared co-expression patterns, acting as downstream effectors or markers of coordinated biological programs. In this network, APOBEC3C emerged as the top incoming hub. Pang et al. reported that APOBEC3C is downregulated in prostate cancer and that reduced expression is associated with advanced tumor stage, higher Gleason scores, and poorer survival. APOBEC3C has been linked to an activated anti-tumor immune microenvironment, including increased CD8⁺ T cell infiltration and reduced M2 macrophages. It also furthers activates downstream signaling pathways involved in DNA damage response and inflammatory signaling, highlighting important characteristics of a hub gene receiving a lot of incoming influences of the network.  On the otherhand, genes with high out-degree connect to many other genes and may act as regulatory or signaling hubs that influence multiple downstream pathways. In this network, GSTP1 ranked as the top outgoing hub. GSTP1 functions in detoxification and interacts with signaling pathways that regulate proliferation, differentiation, and apoptosis. Filippo et al. demonstrated that GSTP1 is frequently hypermethylated in prostate cancer, leading to reduced expression compared with normal prostate tissue. Because also GSTP1 belongs to the GSTs family, a group of enzymes,  is consistent with its high out-degree in the network. 
 
 References: 
@@ -181,6 +210,14 @@ comparison_summary <- data.frame(
 comparison_summary
 
 ```
+Output results: 
+overlap_keys = ## [1] "GSTM4--GSTP1"  "CRYAB--HSPB8"  "ANXA2--S100A6"
+
+comparison summary = 
+| Correlation Edges | STRING Edges | Overlapping Edges | Overlap (% of STRING) |
+|---:|---:|---:|---:|
+| 2010 | 6 | 3 | 50% |
+
 The next step was to compare the correlation-based gene network with a known protein–protein interaction (PPI) network from the STRING database to see whether strongly co-expressed gene pairs are also supported by known biological interactions. First, a STRING database object for human genes was created, and the genes from the correlation network were used as the input set. These genes were then mapped to STRING protein identifiers so that known interactions could be retrieved. To keep the analysis reliable, the STRING interactions were filtered to include only high-confidence edges with a combined score of at least 700. To compare the two networks, both the correlation edges and the STRING interactions were converted into undirected gene-pair identifiers, which allowed overlapping interactions to be identified regardless of gene order. The analysis revealed three overlapping gene pairs: GSTM4–GSTP1, CRYAB–HSPB8, and ANXA2–S100A6. In result, the correlation network contained 2010 edges, while the STRING PPI network contained 6 high-confidence interactions among the same gene set. Of these, 3 interactions overlapped, meaning that these gene pairs are not only strongly co-expressed in the dataset but also known to interact at the protein level.
 
 At first, the small overlap was somewhat surprising, but it makes sense because correlation networks capture co-expression relationships, which can reflect shared regulation, pathway membership, or indirect functional associations. In contrast, the STRING database is more conservative and focuses on experimentally supported or predicted protein interactions, which often represent direct physical binding. After entering the proteins into the STRING database to explore the interactions further, the results showed that GSTM4–GSTP1 belongs to the glutathione S-transferase family involved in detoxification and oxidative stress responses. CRYAB–HSPB8 participates in protein quality control and cellular stress-response pathways, while ANXA2–S100A6 is associated with calcium-dependent signaling and cytoskeletal regulation. These interactions capture pathways related to cellular stress responses, metabolism, and tumor-associated signaling.
@@ -287,6 +324,7 @@ text(sft$fitIndices[,1], sft$fitIndices[,5], labels=power, cex=cex1,col="red")
 ## result, power = 20
 soft_power <- 20
 ```
+**Results/scaleindependence_meanconnectivity.png**
 
 blockwiseModules() is used to build the WGCNA network using the previously selected soft-thresholding power. This step constructs a gene co-expression network from the expression matrix and identifies groups of genes, called modules, that show similar expression patterns across samples. The network is based on an unsigned topological overlap matrix (TOM), meaning genes are grouped according to the strength of their co-expression relationships regardless of whether the correlation is positive or negative. The output of this step includes module eigengenes, which summarize the overall expression pattern of each module. These eigengenes serve as representative profiles for the modules and can later be correlated with clinical traits.
 
@@ -325,12 +363,9 @@ plotDendroAndColors(bwnet$dendrograms[[1]], mergedColors_PRAD[bwnet$blockGenes[[
                     dendroLabels = FALSE, hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05, main = "Cluster dendrogram for PRAD")
 
-
-
-
 ```
 
-
+**Results/Cluster_dendogram.png**
 
 Prepare phenotype trait table using reference: 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, class.source = "fold-show", fig.height=5, fig.width=8, results='show', cache=FALSE}
@@ -460,7 +495,8 @@ ggplot(pink_geneInfo, aes(x = cor_tumor, y = cor_gleason)) +
   )
 
 ```
-
+**Results/heatmapWGCNA_module_eigengenes.png**
+**Results/Top_MEpink_genes.png**
 I was mainly interested in identifying which genes in the MEpink module were most strongly associated with tumor status and Gleason score. To do this, the correlation between each gene’s expression and these clinical traits was calculated and combined into a table containing the gene name, module color, and the two correlation values. The genes were then ranked based on their combined association with tumor presence and disease severity. A scatter plot was generated to visualize the relationship between gene significance for tumor (x-axis) and gene significance for Gleason score (y-axis), with the top genes labeled.
 One of the top genes identified was HJURP (Holliday Junction Recognition Protein). Previous work by Lai et al. reported that HJURP is significantly upregulated in prostate cancer and that higher mRNA and protein levels are associated with poorer patient outcomes, serving as an independent prognostic marker for survival. Functionally, HJURP promotes prostate cancer cell proliferation by enhancing the ubiquitination and degradation of the cell cycle inhibitor CDKN1A (p21) through the GSK3β/JNK signaling pathway. This supports the observation that HJURP appears among the top MEpink genes, suggesting it may play an important role in tumor progression 
 
