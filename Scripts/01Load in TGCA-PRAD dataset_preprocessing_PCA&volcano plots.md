@@ -195,7 +195,7 @@ dim(limma_res$voomObj)#all genes from 104 samples
 res_pca <-plot_PCA(limma_res$voomObj, "sample_type")
 
 ```
-
+**Results/PCA.png**
 
 The differential gene expression between normal and tumor prostate tissue using all analyzed genes in a volcano plot. The resulted plot demonstrates clear transcriptional differences between the two sample types. Genes that are significantly upregulated in tumors are shown in red, while downregulated genes are shown in blue, using solid normal tissue as the reference. The symmetrical shape of the plot indicates balanced up- and down-regulation, and the clustering of genes at high −log10(adjusted p-values) highlights a substantial number of statistically significant differentially expressed genes.
 
@@ -216,7 +216,7 @@ legend("bottomleft", title=paste("Padj<", 0.05, sep=""), legend=c("down", "up"),
 
 
 ```
-
+**Results/volcanoplot.png**
 
 
 ## References:
