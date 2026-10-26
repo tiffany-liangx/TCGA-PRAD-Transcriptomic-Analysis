@@ -51,6 +51,8 @@ sig_genes_expr<-sig_genes_expr[,3:106]
 h<-hclust(dist(sig_genes_expr))
 plot(h)
 ```
+**Results/hclust.png**
+
 
 After filtering, the genes that passed both the FDR (< 0.05) and fold-change (|logFC| > 1) thresholds were ranked by decreasing log fold change, and their expression values were pulled across all samples. Hierarchical clustering was then performed using Euclidean distance, which groups genes based on how similar their overall expression patterns are. Genes that merge at lower branch heights tend to show very similar expression behavior, while those joining at higher heights are more distinct.
 
@@ -133,7 +135,6 @@ ego_neglogfc <- enrichGO(
 dotplot(ego_neglogfc, showCategory = 10, font.size = 10)+ ggtitle("down-regulated genes- GO")
 
 
-
 ```
 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, class.source = "fold-show", fig.height=5, fig.width=8, results='show', cache=FALSE}
@@ -165,6 +166,12 @@ dotplot(ekegg_neglogfc, showCategory = 10, font.size = 10)+ ggtitle("down-regula
 The enrichment analysis suggests that tumor-associated DEGs are strongly enriched in developmental and differentiation-related programs. GO terms for upregulated genes include pattern specification, regionalization, and neuronal/glial differentiation indicating that tumor cells may be reactivating embryonic lineage programs. For instance, pattern specification has the highest count from go enrichment analysis. It refers to developmental processes that establish defined spatial identities that guide cell differentiation [1]. This is consistent with evidence that cancer cells reactivate embryonic signaling pathways, such as Wnt signaling, which are normally inactive in differentiated tissues [2]. In prostate cancer, loss or epigenetic silencing of the tumor suppressor APC disrupts β-catenin degradation and activating β-catenin mutations have shown to further drive early tumor development [2]. Together, the dotplot results support the idea that tumors adopt developmental and stem-like transcriptional states. In this dataset, GO enrichment appears more statistically robust than KEGG, as reflected by consistently lower q-values. KEGG enrichment for upregulated genes is weaker and less statistically robust, with higher adjusted p-values and small gene counts. Based on this, upregulated tumor transcriptome appears more characterized by development and cell identity, rather than metabolic pathways. 
 
 For the downregulated genes, GO enrichment points to processes related to membrane organization and vesicular trafficking, including receptor-mediated endocytosis and membrane raft assembly. This suggests that tumor tissue may have altered receptor internalization and disrupted membrane dynamics compared to normal tissue. Supporting this, Boyu et al. reported increased clathrin expression and reduced caveolin-1 (Cav-1) in prostate cancer, with enhanced clathrin-mediated EGFR recycling correlating with increased tumor aggressiveness [3]. Although Cav-1 can function as a tumor suppressor in certain contexts, it has also been associated with malignant progression depending on the cellular environment [3]. In addition, KEGG enrichment highlights reduced detoxification and metabolic pathways, such as cytochrome P450, xenobiotic metabolism, and glutathione metabolism. These findings suggest that tumors may exhibit both altered receptor signaling regulation and diminished normal metabolic capacity relative to normal tissue.
+
+**Results/GO_upregulatedgenes.png**
+**Results/GO_downregulatedgenes.png**
+**Results/KEGG_upregulatedgenes.png**
+**Results/KEGG_downregulatedgenes.png**
+
 
 References:
 [1] https://amigo.geneontology.org/amigo/term/GO:0007389 
@@ -230,5 +237,7 @@ head(gsea_kegg)
 dotplot(gsea_kegg, showCategory = 10) +
   ggtitle("GSEA KEGG: Top 10")
 ```
+**Results/GSEA_GO_top10.png**
+**Results/GSEA_KEGG_TOP10.png**
 
 The GSEA results provide a broader, pathway-level view of how tumor samples differ from normal tissue without relying on strict cutoffs for significance. In the GO analysis, the strongest signals are centered around mitosis and chromosome segregation, which is consistent with increased proliferation and altered chromosomal regulation as key features of the tumor transcriptome. Overall points to coordinated activation of cell cycle programs across many genes. The KEGG analysis supports a similar theme but at a more pathway-oriented level. The enriched pathways include cell cycle, pathways in cancer, Calcium signaling, and Ribosome, may reflect on the enhanced growth signaling, structural remodeling, and increased protein synthesis associated with a highly proliferative and transcriptionally rewired tumor state. In result, the GSEA summarizes that tumors are driven by coordinated activation of proliferation and cancer-related pathways, reflecting consistent biological shifts rather than random expression changes.
