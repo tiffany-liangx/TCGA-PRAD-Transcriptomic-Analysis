@@ -97,7 +97,7 @@ The Cancer Genome Atlas (TCGA), Prostate Adenocarcinoma (PRAD).
 
 [7] Li, Weiqiang et al. “Genome-wide Scan Identifies Role for AOX1 in Prostate Cancer Survival.” European urology vol. 74,6 (2018): 710-719. doi:10.1016/j.eururo.2018.06.021
 
-[8] https://amigo.geneontology.org/amigo/term/GO:0007389
+[8] The Gene Ontology Consortium. “Pattern Specification Process (GO:0007389).” https://amigo.geneontology.org/amigo/term/GO:0007389
 
 [9] da Silva, Henrique B et al. “Dissecting Major Signaling Pathways throughout the Development of Prostate Cancer.” Prostate cancer vol. 2013 (2013): 920612. doi:10.1155/2013/920612
 
