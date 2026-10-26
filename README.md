@@ -98,9 +98,23 @@ tcga-prad-transcriptomic-analysis/
     └── README.md
 ```
 
-*Update the structure to reflect the files actually included in your repository.*
 
-
-## Data Source
+## Data Source & References: 
 
 The Cancer Genome Atlas (TCGA), Prostate Adenocarcinoma (PRAD).
+
+[1] Wang T, Lewis B, Elaimy A, et al. Adenocarcinoma of the Prostate: Future Directions for Translational Science. In: Bott SRJ, Ng KL, editors. Prostate Cancer [Internet]. Brisbane (AU): Exon Publications; 2021 May 27. Chapter 7. Available from: https://www.ncbi.nlm.nih.gov/books/NBK571329/ doi: 10.36255/exonpublications.prostatecancer.translationalscience.2021
+[2] Liang, Ming, et al. “DLX1, a Binding Protein of Beta-Catenin, Promoted the Growth and Migration of Prostate Cancer Cells.” Experimental Cell Research [United States], vol. 363, no. 1, 2018, pp. 26–32, https://doi.org/10.1016/j.yexcr.2018.01.007.
+[3] Oh-Hohenhorst, Su Jung, and Tobias Lange. “Role of Metastasis-Related microRNAs in Prostate Cancer Progression and Treatment.” Cancers [Basel], vol. 13, no. 17, 2021, p. 4492, https://doi.org/10.3390/cancers13174492.
+[4] Jiang, Z., Zhang, Y., Chen, X. et al. Inactivation of the Wnt/β-catenin signaling pathway underlies inhibitory role of microRNA-129-5p in epithelial–mesenchymal transition and angiogenesis of prostate cancer by targeting ZIC2. Cancer Cell Int 19, 271 (2019). https://doi.org/10.1186/s12935-019-0977-9
+[5] Wu, L., Quan, W., Yue, G. et al. Identification of a novel six autophagy-related genes signature for the prognostic and a miRNA-related autophagy predictor for anti-PD-1 therapy responses in prostate cancer. BMC Cancer 21, 15 (2021). https://doi.org/10.1186/s12885-020-07725-0
+[6] Carey, Jason P W et al. “Inhibitor of differentiation 4 (Id4) is a potential tumor suppressor in prostate cancer.” BMC cancer vol. 9 173. 7 Jun. 2009, doi:10.1186/1471-2407-9-173
+[7] Li, Weiqiang et al. “Genome-wide Scan Identifies Role for AOX1 in Prostate Cancer Survival.” European urology vol. 74,6 (2018): 710-719. doi:10.1016/j.eururo.2018.06.021
+[8] https://amigo.geneontology.org/amigo/term/GO:0007389
+[9] da Silva, Henrique B et al. “Dissecting Major Signaling Pathways throughout the Development of Prostate Cancer.” Prostate cancer vol. 2013 (2013): 920612. doi:10.1155/2013/920612
+[10] Xie, Boyu et al. “Opposite changes in the expression of clathrin and caveolin-1 in normal and cancerous human prostate tissue: putative clathrin-mediated recycling of EGFR.” Histochemistry and cell biology vol. 159,6 (2023): 489-500. doi:10.1007/s00418-023-02183-8
+
+[11] Pang, Z., Wang, J., Xu, Y., Ji, B., Ren, M., & Ding, B. (2026). APOBEC3C Suppresses Prostate Cancer by Regulating Key Molecules Involved in Cellular Inflammation, Cell Cycle Arrest, and DNA Damage Response. Cancers, 18(1), 170. https://doi.org/10.3390/cancers18010170 
+[12] Martignano, Filippo et al. “GSTP1 Methylation and Protein Expression in Prostate Cancer: Diagnostic Implications.” Disease markers vol. 2016 (2016): 4358292. doi:10.1155/2016/4358292
+[13] Lai, W., Zhu, W., Xiao, C., Li, X., Wang, Y., Han, Y., Zheng, J., Li, Y., Li, M., & Wen, X. (2021). HJURP promotes proliferation in prostate cancer cells through increasing CDKN1A degradation via the GSK3β/JNK signaling pathway. Cell Death & Disease, 12(6), Article 583. https://doi.org/10.1038/s41419-021-03870-x
+
