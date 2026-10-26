@@ -167,6 +167,13 @@ tail(sorted_fc$gene_name)[1:3]
 ```
 
 
+
+| Code| printed output |
+|---|---|
+|dim(sig_fc)|## [1] 88 16|
+|head(sorted_fc$gene_name)[1:3]|## [1] "DLX1"   "ZIC2"   "NKX2-3"|
+|tail(sorted_fc$gene_name)[1:3]|## [1] "CRYAB" "ID4"   "AOX1"|
+
 ## 3. PCA and volcano plots
 
 Import plot_PCA wrapper function from the assignment's reference link. It produces a PCA plot given from the voom object outputted in the limma_pipline function. It defines PC1 and PC2 based on the largest variance to plot for tumor vs normal sample types. In results, there's a clear subset distinction of RNA expression between the two sample types. 
