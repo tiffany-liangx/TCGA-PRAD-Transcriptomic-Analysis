@@ -66,14 +66,13 @@ In this analysis , RNA-seq data from the TCGA-PRAD dataset were analyzed to iden
 ### 3. Gene Correlation Network Analysis
 - Identified highly connected genes, including **APOBEC3C** and **GSTP1**, as network hubs in the correlation-based network.
 - Comparison with high-confidence STRING protein-protein interactions identified overlapping gene pairs associated with oxidative stress response, protein quality control, and calcium-dependent signaling.
-- These findings provide additional context for understanding relationships among tumor-associated genes.
 
-### 4. WGCNA and Clinical Associations
+### 4. WGCNA
 - Identified the **MEpink** co-expression module as positively associated with tumor status and moderately correlated with Gleason score (*r* = 0.33).
 - Highlighted **HJURP, MKI67, RRM2, NEIL3, MYBL2, and CDC25C** as candidate genes associated with tumor presence and disease severity.
 - **HJURP** emerged as a candidate of interest due to its association with tumor status and Gleason score, consistent with previously reported roles in cell proliferation.
 
-**Overall:** While many of the genes identified in this analysis have already been linked to prostate cancer biology, combining differential expression analysis with pathway enrichment, co-expression networks, and module–trait relationships provides a broader view of how these genes function within coordinated transcriptional programs. This systems-level perspective highlights potential biomarkers and regulatory hubs, such as DLX1, GSTP1, and HJURP, that may have diagnostic or prognostic value if their expression correlates with disease severity or treatment response.
+Overall, this systems-level perspective highlights potential biomarkers and regulatory hubs, such as DLX1, GSTP1, and HJURP that may have diagnostic or prognostic value if their expression correlates with disease severity or treatment response.
 
 ## Data Source & References: 
 
